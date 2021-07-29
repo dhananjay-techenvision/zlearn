@@ -22,6 +22,17 @@ class AdminController extends Controller
         return view('Admin/webviews/manage_admin_user',$data);
     }
 
+
+    public function add_subject(Request $request)
+    {
+        // dd("hello");
+       $data =  User::get();
+        $data['flag'] = 2; 
+        $data['page_title'] = 'Add SUbject'; 
+        dd($data);
+        return view('Admin/webviews/manage_admin_user',$data);
+    }
+
     public function user_list(Request $request)
     {
         

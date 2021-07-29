@@ -63,7 +63,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::middleware(['auth', 'Admin'])->group(function () {
     Route::get('admin-list', 'AdminController@admin_list');
     Route::get('user-list', 'AdminController@user_list');
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');    
+    Route::get('add-subject', 'AdminController@add_subject');
     Route::get('{any}', 'QovexController@index');
 
     
