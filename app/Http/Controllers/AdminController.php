@@ -16,12 +16,10 @@ class AdminController extends Controller
 {
     public function admin_list(Request $request)
     {
-        // if(view()->exists($request->path())){
-        //     return view($request->path());
-        // }
        $data =  User::get();
-        // dd($data);
-        return view('Admin.admin_list');
+        $data['flag'] = 1; 
+        $data['page_title'] = 'View Admin'; 
+        return view('Admin/webviews/manage_admin_user',$data);
     }
 
     public function user_list(Request $request)
