@@ -225,6 +225,9 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="admin-list">Admin list</a></li>
                         <li><a href="user-list">User list</a></li>
+                        <li><a href="add-standard">Add Standard</a></li>
+                        <li><a href="add-subject">Add Subject</a></li>
+                        <li><a href="add-chapter">Add Chapter</a></li>
                     </ul>
                 </li>
 

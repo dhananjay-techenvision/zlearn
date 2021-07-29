@@ -6,12 +6,12 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <title>Linea - Creative Website Template</title>
-        @include('layouts.website_head')
+        @include('layouts.student_head')
         @toastr_css
   </head>
 
     @yield('body')
-    @include('layouts.website_footer')
+    @include('layouts.student_footer')
     @toastr_js
     @toastr_render
 

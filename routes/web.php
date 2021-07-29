@@ -17,14 +17,18 @@ use Illuminate\Support\Facades\Route;
 //     return redirect('/index');
 // });
 
-Route::get('/', 'Website\MainController@index');
-Route::get('/Web-login', 'Website\MainController@login');
-Route::get('/Web-register', 'Website\MainController@register');
-Route::post('/Register-submit', 'Website\MainController@register_submit');
-Route::post('/Login-submit', 'Website\MainController@login_submit');
+Route::get('/', 'QovexController@logout');
+// Route::get('/Web-login', 'Website\MainController@login');
+// Route::get('/Web-register', 'Website\MainController@register');
+// Route::post('/Register-submit', 'Website\MainController@register_submit');
+// Route::post('/Login-submit', 'Website\MainController@login_submit');
 
-Route::middleware(['websiteMiddleware'])->group(function() {
-    Route::get('profile', 'Website\MainController@profile');
+/*   Student login Registration      */
+// Route::get('/Student-login', 'Student\StudentController@index');
+Route::get('/Student-register', 'Student\StudentController@register');
+
+Route::middleware(['auth','User'])->group(function() {
+    Route::get('/', 'Student\StudentController@index');
 });
 
 Auth::routes();
@@ -63,11 +67,21 @@ Route::group(['middleware' => 'auth'], function () {
 Route::middleware(['auth', 'Admin'])->group(function () {
     Route::get('admin-list', 'AdminController@admin_list');
     Route::get('user-list', 'AdminController@user_list');
-    Route::get('/home', 'HomeController@index')->name('home');    
+    Route::get('/home', 'HomeController@index')->name('home'); 
+    
+    Route::get('add-standard', 'AdminController@add_standard');
+    Route::get('add-subject', 'AdminController@add_subject');
+    Route::get('add-chapter', 'AdminController@add_chapter');
+
+    Route::post('submit-standard', 'AdminController@submit_standard');
+    Route::post('submit-subject', 'AdminController@submit_subject');
+    
+    
+    Route::post('submit-chapter', 'AdminController@submit_chapter');
+    
     Route::get('add-subject', 'AdminController@add_subject');
     Route::get('{any}', 'QovexController@index');
-
-    
+ 
 });
 
 

@@ -1,52 +1,77 @@
-<!-- ======================================================================= -->
-                    <div class="page-content-wrapper ">
 
-                        <div class="container-fluid">
+<div class="col-12">
+        <div class="card">
+            <div class="card-body">
 
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="float-right page-breadcrumb">
-                                        <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                                            <li class="breadcrumb-item active">Starter</li>
-                                        </ol>
+                {{-- <h4 class="card-title">Buttons example</h4> --}}
+                {{-- <p class="card-title-desc">The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
+                </p> --}}
+                <div class="col-md-8 m-auto">
+                                           
+                    <form class="" action="{{url('submit-standard')}}" method="POST">                        
+                    @csrf 
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Class Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="standerd_name" required placeholder="Enter Class Name"/>
+                            </div>
+                        </div>                         
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Status</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="status">                                    
+                                    <option value="1">Active</option>
+                                    <option value="0">De-Active</option>                                     
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group text-center mt-5">
+                            <div>
+                                <button type="reset" class="btn btn-secondary waves-effect m-l-5">
+                                Cancel
+                                </button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                Submit
+                                </button>
+                               
+                            </div>
+
+                            <div class="any_message mt-3">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </ul>
                                     </div>
-                                    <h5 class="page-title">Add New Standard</h5>
-
-                                    
-                                </div>
-                                <div class="row col-12">
-                                <div class="col-lg-6 m-auto">
-                                    <div class="card m-b-30">
-                                        <div class="card-body">
-            
-                                            <h4 class="mt-0 header-title">Add New Standard</h4>                                         
-                                            <form class="" action="#">
-                                                <div class="form-group">
-                                                    <label>Class Name</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Class Name"/>
-                                                </div>       
-                                                <div class="form-group">
-                                                    <div>
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                                            Submit
-                                                        </button>
-                                                        <button type="reset" class="btn btn-secondary waves-effect m-l-5">
-                                                            Cancel
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </form>
-            
-                                        </div>
+                                @endif
+                                @if(session()->has('alert-danger'))
+                                    <div class="alert alert-danger">
+                                        {{ session()->get('alert-danger') }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                </div> <!-- end col -->
-                             
-                            </div> <!-- end row -->
-                            </div>                
-                        </div><!-- container fluid -->
+                                @endif
+                                    @if(session()->has('alert-success'))
+                                    <div class="alert alert-success">
+                                        {{ session()->get('alert-success') }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end col -->
 
-                    </div> <!-- Page content Wrapper -->
 
-                    <!-- ================================================= -->

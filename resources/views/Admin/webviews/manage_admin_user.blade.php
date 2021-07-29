@@ -19,8 +19,14 @@
 
      <div class="row">
         @if($flag == 1)
-            @include('Admin.components/admin_view_user')
-        @endif
+        @include('Admin.components/admin_view_user')
+    @elseif($flag == 2) 
+        @include('Admin.components/add_subject')
+    @elseif($flag == 3) 
+        @include('Admin.components/add_standard')
+    @elseif($flag == 4) 
+        @include('Admin.components/add_chapter')    
+    @endif
     </div>
                     <!-- end row -->
 
