@@ -49,7 +49,7 @@ Route::get('categories-list', 'AdminController@categories_list');
 Route::get('edit-categories/{id}', 'AdminController@editcategories');
 Route::get('add-categories', 'AdminController@addcategories');
 Route::post('categories-submit', 'AdminController@categoriesSubmit');
-
+// Route::get('{any}', 'QovexController@index');
 
 
 
@@ -57,7 +57,6 @@ Route::post('categories-submit', 'AdminController@categoriesSubmit');
 // You can also use auth middleware to prevent unauthenticated users
 Route::group(['middleware' => 'auth'], function () {
     // Route::get('/home', 'HomeController@index')->name('home');
-    // Route::get('{any}', 'QovexController@index');
     
 });
 
@@ -66,6 +65,8 @@ Route::middleware(['auth', 'Admin'])->group(function () {
     Route::get('user-list', 'AdminController@user_list');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('{any}', 'QovexController@index');
+
+    
 });
 
 
