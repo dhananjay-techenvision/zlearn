@@ -1,34 +1,42 @@
-<div class="pt-32pt">
-    <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
-        <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
+<div class="mdk-drawer js-mdk-drawer"
+                 id="default-drawer">
+                <div class="mdk-drawer__content">
+                    <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                         data-perfect-scrollbar>
 
-            <div class="mb-24pt mb-sm-0 mr-sm-24pt">
-                <h2 class="mb-0">Dashboard</h2>
+                        <!-- Sidebar Content -->
 
-                <ol class="breadcrumb p-0 m-0">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                       
 
-                    <li class="breadcrumb-item active">
+                        <a href="#"
+                           class="sidebar-brand ">
+                            <!-- <img class="sidebar-brand-icon" src="../../public/images/illustration/student/128/white.svg" alt="Luma"> -->
 
-                        Dashboard
+                            <span class="avatar avatar-xl sidebar-brand-icon h-auto">
 
-                    </li>
+                                <span class="avatar-title rounded bg-primary"><img src="{{asset('Student/images/illustration/student/128/white.svg')}}"
+                                         class="img-fluid"
+                                         alt="logo" /></span>
 
-                </ol>
+                            </span>
 
+                            <span>Luma</span>
+                        </a>
+
+                        <div class="sidebar-heading">Student</div>
+                        <ul class="sidebar-menu">
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button"
+                                   href="index.html">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                    <span class="sidebar-menu-text">Home</span>
+                                </a>
+                            </li>
+                        </ul>
+                    
+                        <!-- // END Sidebar Content -->
+
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="row"
-             role="tablist">
-            <div class="col-auto">
-                <a href="student-my-courses.html"
-                   class="btn btn-outline-secondary">My Courses</a>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-
