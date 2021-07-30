@@ -18,6 +18,6 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         $data['page_title'] = 'Dashboard'; 
-    	return view('Students/webviews/student_dashboard',$data);
+    	return view('Students/Webviews/student_dashboard',$data);
     }
 }

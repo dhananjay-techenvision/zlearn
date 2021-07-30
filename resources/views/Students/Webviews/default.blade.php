@@ -1694,9 +1694,18 @@
 
                         <!-- Sidebar Content -->
 
-                       
+                        <div class="d-flex align-items-center navbar-height">
+                            <form action="index.html"
+                                  class="search-form search-form--black mx-16pt pr-0 pl-16pt">
+                                <input type="text"
+                                       class="form-control pl-0"
+                                       placeholder="Search">
+                                <button class="btn"
+                                        type="submit"><i class="material-icons">search</i></button>
+                            </form>
+                        </div>
 
-                        <a href="#"
+                        <a href="index.html"
                            class="sidebar-brand ">
                             <!-- <img class="sidebar-brand-icon" src="../../public/images/illustration/student/128/white.svg" alt="Luma"> -->
 

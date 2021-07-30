@@ -1,8 +1,6 @@
 <body class="layout-app ">
 
-    @extends('Students.common.student_navbar')
 
-    @extends('Students.common.student_sidebar')
             <!-- BEFORE Page Content -->
 
             <!-- // END BEFORE Page Content -->
@@ -1289,30 +1287,7 @@
                             </li>
                         </ul>
 
-                        <!-- <ul class="pagination justify-content-center pagination-sm">
-<li class="page-item disabled">
-<a class="page-link" href="#" aria-label="Previous">
-  <span aria-hidden="true" class="material-icons">chevron_left</span>
-  <span>Prev</span>
-</a>
-</li>
-<li class="page-item active">
-<a class="page-link" href="#" aria-label="1">
-  <span>1</span>
-</a>
-</li>
-<li class="page-item">
-<a class="page-link" href="#" aria-label="1">
-  <span>2</span>
-</a>
-</li>
-<li class="page-item">
-<a class="page-link" href="#" aria-label="Next">
-  <span>Next</span>
-  <span aria-hidden="true" class="material-icons">chevron_right</span>
-</a>
-</li>
-</ul> -->
+                     
                     </div>
 
                 </div>
@@ -1349,46 +1324,13 @@
 
         <!-- Drawer -->
 
-        <div class="mdk-drawer js-mdk-drawer"
-             id="default-drawer">
-            <div class="mdk-drawer__content">
-                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
-                     data-perfect-scrollbar>
-
-                    <!-- Sidebar Content -->
-
-                    <div class="d-flex align-items-center navbar-height">
-                       
-                    </div>
-
-                    
-
-                    <div class="sidebar-heading">Student</div>
-                    <ul class="sidebar-menu">
-
-                         <li class="sidebar-menu-item">
-                            <a class="sidebar-menu-button"
-                               href="index.html">
-                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
-                                <span class="sidebar-menu-text">Home</span>
-                            </a>
-                        </li>
-                    </ul>
-                    
-
-                    <!-- // END Sidebar Content -->
-
-                </div>
-            </div>
-        </div>
+        @include('Students.Common.student_sidebar')
 
         <!-- // END Drawer -->
 
     </div>
 
     <!-- // END Drawer Layout -->
-
-    @extends('Students.common.student_footer')
 
 </body>
 

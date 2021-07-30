@@ -78,6 +78,10 @@ Route::middleware(['auth', 'Admin'])->group(function () {
     
     
     Route::post('submit-chapter', 'AdminController@submit_chapter');
+
+    Route::get('view-standard', 'AdminController@view_standard');
+    Route::get('view-subject', 'AdminController@view_subject');
+    Route::get('view-chapter', 'AdminController@view_chapter');
     
     Route::get('add-subject', 'AdminController@add_subject');
     Route::get('{any}', 'QovexController@index');

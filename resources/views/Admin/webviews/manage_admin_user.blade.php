@@ -25,7 +25,13 @@
     @elseif($flag == 3) 
         @include('Admin.components/add_standard')
     @elseif($flag == 4) 
-        @include('Admin.components/add_chapter')    
+        @include('Admin.components/add_chapter')
+    @elseif($flag == 5) 
+        @include('Admin.components/view_standard') 
+    @elseif($flag == 6) 
+        @include('Admin.components/view_subject') 
+    @elseif($flag == 7) 
+        @include('Admin.components/View_chapter')         
     @endif
     </div>
                     <!-- end row -->

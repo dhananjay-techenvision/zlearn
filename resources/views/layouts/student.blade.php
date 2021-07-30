@@ -8,7 +8,7 @@
           @include('layouts.student_head')
           @toastr_css
 </head>
-
+    
     @yield('body')
     @include('layouts.student_footer')
     @toastr_js

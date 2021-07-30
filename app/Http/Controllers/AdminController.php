@@ -91,16 +91,16 @@ class AdminController extends Controller
         $result = $data->save();
         if($result)
         {
-            $req->session()->flash('alert-success', 'Standerd was Successfully Added!');
+            $req->session()->flash('alert-success', 'Standard was Successfully Added!');
         }
         else
         {
-            $req->session()->flash('alert-danger', 'Standerd Not Added!!!');
+            $req->session()->flash('alert-danger', 'Standard Not Added!!!');
         } 
     }
     else
     {
-        $req->session()->flash('alert-danger', 'Standerd Already Exists!!!');
+        $req->session()->flash('alert-danger', 'Standard Already Exists!!!');
     }         
 
      return back(); 
@@ -180,6 +180,36 @@ class AdminController extends Controller
         return back(); 
 
          
+    }
+
+    public function view_standard()
+    {
+       // dd("String");
+
+        $data =  User::get();
+        $data['flag'] = 5; 
+        $data['page_title'] = 'All Standard';  
+        $data['standerds'] = DB::table('standerds')->get();     
+        return view('Admin/webviews/manage_admin_user',$data);
+    }
+
+    public function view_subject()
+    {
+        ///dd("String");
+        $data =  User::get();
+        $data['flag'] = 6; 
+        $data['page_title'] = 'All Subject';  
+        $data['subjects'] = DB::table('subjects')->get();     
+        return view('Admin/webviews/manage_admin_user',$data);
+    }
+    public function view_chapter()
+    {
+       // dd("String");
+       $data =  User::get();
+       $data['flag'] = 7; 
+       $data['page_title'] = 'All Chapter';  
+       $data['chapters'] = DB::table('chapters')->get();     
+       return view('Admin/webviews/manage_admin_user',$data);
     }
     
 }
