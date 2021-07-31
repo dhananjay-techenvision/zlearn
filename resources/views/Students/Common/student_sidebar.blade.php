@@ -20,7 +20,7 @@
 
                             </span>
 
-                            <span>Luma</span>
+                            <span>Zlearn</span>
                         </a>
 
                         <div class="sidebar-heading">Student</div>
