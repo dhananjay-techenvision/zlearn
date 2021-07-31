@@ -28,12 +28,22 @@
 
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button"
-                                   href="index.html">
+                                   href="#">
                                     <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
                                     <span class="sidebar-menu-text">Home</span>
                                 </a>
                             </li>
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button"
+                                   href="{{url('resume-page-one')}}">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                    <span class="sidebar-menu-text">Resume</span>
+                                </a>
+                            </li>
                         </ul>
+
+                        
                     
                         <!-- // END Sidebar Content -->
 

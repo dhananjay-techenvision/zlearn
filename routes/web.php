@@ -29,6 +29,10 @@ Route::get('/Student-register', 'Student\StudentController@register');
 
 Route::middleware(['auth','User'])->group(function() {
     Route::get('/', 'Student\StudentController@index');
+
+    Route::get('resume-page-one', 'Student\StudentController@resume_page_one');
+
+    Route::post('Basic-Info', 'Student\StudentController@submit_BasicInfo');
 });
 
 Auth::routes();
@@ -68,22 +72,36 @@ Route::middleware(['auth', 'Admin'])->group(function () {
     Route::get('admin-list', 'AdminController@admin_list');
     Route::get('user-list', 'AdminController@user_list');
     Route::get('/home', 'HomeController@index')->name('home'); 
-    
-    Route::get('add-standard', 'AdminController@add_standard');
-    Route::get('add-subject', 'AdminController@add_subject');
-    Route::get('add-chapter', 'AdminController@add_chapter');
-
-    Route::post('submit-standard', 'AdminController@submit_standard');
-    Route::post('submit-subject', 'AdminController@submit_subject');
-    
-    
-    Route::post('submit-chapter', 'AdminController@submit_chapter');
 
     Route::get('view-standard', 'AdminController@view_standard');
+    Route::get('add-standard', 'AdminController@add_standard');
+    Route::post('submit-standard', 'AdminController@submit_standard');
+    Route::get('edit-standard/{id}', 'AdminController@edit_standard');
+    Route::get('delete-standard/{id}', 'AdminController@delete_standard');
+
+
+    Route::get('view-semister', 'AdminController@view_semister');
+    Route::get('add-semister', 'AdminController@add_semister');
+    Route::post('submit-semister', 'AdminController@submit_semister');
+    Route::get('edit-semister/{id}', 'AdminController@edit_semister');
+    Route::get('delete-semister/{id}', 'AdminController@delete_semister');
+
+
     Route::get('view-subject', 'AdminController@view_subject');
-    Route::get('view-chapter', 'AdminController@view_chapter');
-    
     Route::get('add-subject', 'AdminController@add_subject');
+    Route::post('submit-subject', 'AdminController@submit_subject');
+
+    Route::get('view-chapter', 'AdminController@view_chapter');
+    Route::get('add-chapter', 'AdminController@add_chapter');
+    Route::post('submit-chapter', 'AdminController@submit_chapter');
+
+
+    Route::get('view-college', 'AdminController@view_college');
+    Route::get('add-college', 'AdminController@add_college');
+    Route::post('submit-college', 'AdminController@submit_college');
+    Route::get('edit-college/{id}', 'AdminController@edit_college');
+    Route::get('delete-college/{id}', 'AdminController@delete_college');
+
     Route::get('{any}', 'QovexController@index');
  
 });

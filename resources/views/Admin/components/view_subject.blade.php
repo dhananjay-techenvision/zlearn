@@ -10,7 +10,8 @@
                         <tr>
                             <th>No </th>
                             <th>Subject Name</th>
-                            <th>Semester</th> 
+                            <th>Semester</th>
+                            <th>Standard</th> 
                             <th>Status</th>                            
                             <th>Action</th>
                         
@@ -24,7 +25,8 @@
                         <tr>
                             <td>{{$i++}}</td>
                             <td>{{$row->subject_name}}</td> 
-                            <td>{{$row->semister_id}}</td>                            
+                            <td>{{$row->semister_id}}</td> 
+                            <td>{{$row->standard_id}}</td>                            
                             <td>@if($row->status == 1) Active @else De-Active @endif</td>
                             <td><a href="{{$row->id}}" class="btn btn-info mr-2">Edit</a><a href="{{$row->id}}" class="btn btn-danger">Delete</a></td>                                               
                         </tr>

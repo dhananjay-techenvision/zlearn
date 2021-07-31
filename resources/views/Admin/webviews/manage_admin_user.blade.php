@@ -31,7 +31,21 @@
     @elseif($flag == 6) 
         @include('Admin.components/view_subject') 
     @elseif($flag == 7) 
-        @include('Admin.components/View_chapter')         
+        @include('Admin.components/view_chapter')
+    @elseif($flag == 8) 
+        @include('Admin.components/view_college')
+    @elseif($flag == 9) 
+        @include('Admin.components/add_college')
+    @elseif($flag == 10) 
+        @include('Admin.components/edit_standard')
+    @elseif($flag == 11) 
+        @include('Admin.components/edit_college')   
+    @elseif($flag == 12) 
+        @include('Admin.components/view_semister')
+    @elseif($flag == 13) 
+        @include('Admin.components/add_semister')  
+    @elseif($flag == 14) 
+        @include('Admin.components/edit_semister')  
     @endif
     </div>
                     <!-- end row -->

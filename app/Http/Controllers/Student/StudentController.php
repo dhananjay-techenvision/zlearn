@@ -20,4 +20,13 @@ class StudentController extends Controller
         $data['page_title'] = 'Dashboard'; 
     	return view('Students/Webviews/student_dashboard',$data);
     }
+
+    public function resume_page_one()
+    {
+        $data['page_title'] = 'Resume Form One';
+        $u_id = Auth::User()->id;
+        $data['user'] = User::where('id',$u_id)->first();      
+        return view('Students/Webviews/student_add_resume',$data);
+
+    }
 }

@@ -23,7 +23,7 @@
                             <td>{{$i++}}</td>
                             <td>{{$row->standerd_name}}</td>                            
                             <td>@if($row->status == 1) Active @else De-Active @endif</td>
-                            <td><a href="{{$row->id}}" class="btn btn-info mr-2">Edit</a><a href="{{$row->id}}" class="btn btn-danger">Delete</a></td>                                               
+                            <td><a href="{{url('edit-standard/'.$row->id)}}" class="btn btn-info mr-2">Edit</a><a href="{{url('delete-standard/'.$row->id)}}" class="btn btn-danger">Delete</a></td>                                               
                         </tr>
                         @endforeach
                        

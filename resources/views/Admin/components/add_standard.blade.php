@@ -11,9 +11,9 @@
                     <form class="" action="{{url('submit-standard')}}" method="POST">                        
                     @csrf 
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Class Name</label>
+                            <label class="col-sm-3 col-form-label">Standard Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="standerd_name" required placeholder="Enter Class Name"/>
+                                <input type="text" class="form-control" name="standerd_name" required placeholder="Enter Standard Name" required/>
                             </div>
                         </div>                         
                         <div class="form-group row">

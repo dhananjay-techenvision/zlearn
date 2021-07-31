@@ -6,8 +6,7 @@
                 {{-- <h4 class="card-title">Buttons example</h4> --}}
                 {{-- <p class="card-title-desc">The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
                 </p> --}}
-                <div class="col-md-8 m-auto">
-                                           
+                <div class="col-md-8 m-auto">                                           
                     <form action="{{url('submit-subject')}}" method="POST"> 
                     @csrf                        
                         <div class="form-group row">
@@ -19,12 +18,23 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Semester</label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="semester" required>
-                                    <option value="">Select Semester</option>
-                                    <option value="1">1st</option>
-                                    <option value="2">2nd</option>
-                                    <option value="3">3st</option>
-                                    <option value="4">4nd</option>
+                                <select class="form-control" name="semister_id" required>
+                                    <option value="">Select Semister</option>
+                                    @foreach($semister as $r) 
+                                        <option value="{{$r->id}}">{{$r->semister_name}}</option> 
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Standard</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="standard_id" required>
+                                    <option value="">Select Standard</option>
+                                    @foreach($standerds as $r) 
+                                        <option value="{{$r->id}}">{{$r->standerd_name}}</option> 
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
