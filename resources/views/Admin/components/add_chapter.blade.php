@@ -4,7 +4,15 @@
             <div class="card-body"> 
                 <div class="col-md-8 m-auto">                                           
                     <form class="" action="{{url('submit-chapter')}}" method="post"> 
-                    @csrf                       
+                    @csrf    
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Chapter Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="chapter_name" required placeholder="Enter Chapter Name"/>   
+                        </div>
+                    </div>
+
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Subject</label>
                             <div class="col-sm-9">                                 
@@ -19,17 +27,15 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Semester</label>
                             <div class="col-sm-9">                                 
-                                <select class="form-control" name="semester" readonly>                                    
-                                    <option value="1">1st</option>                                                                        
+                                <select class="form-control" name="semester_id" readonly>                                    
+                                    <option value="">Select Semester</option>
+                                    @foreach($semister as $r) 
+                                        <option value="{{$r->id}}">{{$r->semister_name}}</option> 
+                                    @endforeach                                                                      
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Chapter Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="chapter_name" required placeholder="Enter Chapter Name"/>   
-                            </div>
-                        </div>
+                        
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Status</label>
                             <div class="col-sm-9">

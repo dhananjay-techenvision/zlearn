@@ -3,26 +3,27 @@
     <div class="card">
         <div class="card-body"> 
             <div class="col-12 text-right pb-2"> 
-                <a href="{{url('add-semister')}}" class="btn btn-info">Add Semester</a>
+                <a href="add-test-type" class="btn btn-info">Add Test Types</a>
             </div>    
         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap text-center" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Semester</th>
+                        <th>No </th>
+                        <th>Test Types</th>
                         <th>Status</th>                            
-                        <th>Action</th>                    
+                        <th>Action</th>
+                    
                     </tr>
                 </thead>
 
                 <tbody>
                     <?php $i = 1; ?>
-                    @foreach($semister as $row)
+                    @foreach($test_type as $row)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$row->semister_name}}</td>                            
+                        <td>{{$row->test_type_name}}</td>                            
                         <td>@if($row->status == 1) Active @else De-Active @endif</td>
-                        <td><a href="{{url('edit-semister/'.$row->id)}}" class="btn btn-info mr-2">Edit</a><a href="{{url('delete-semister/'.$row->id)}}" class="btn btn-danger">Delete</a></td>                                               
+                        <td><a href="{{url('edit-test-type/'.$row->id)}}" class="btn btn-info mr-2">Edit</a><a href="{{url('delete-test-type/'.$row->id)}}" class="btn btn-danger">Delete</a></td>                                               
                     </tr>
                     @endforeach
                    

@@ -45,7 +45,17 @@
     @elseif($flag == 13) 
         @include('Admin.components/add_semister')  
     @elseif($flag == 14) 
-        @include('Admin.components/edit_semister')  
+        @include('Admin.components/edit_semister')
+    @elseif($flag == 15) 
+        @include('Admin.components/edit_subject')
+    @elseif($flag == 16) 
+        @include('Admin.components/edit_chapter')
+    @elseif($flag == 17) 
+        @include('Admin.components/view_test_type')
+    @elseif($flag == 18) 
+        @include('Admin.components/add_test_type') 
+    @elseif($flag == 19) 
+        @include('Admin.components/edit_test_type')  
     @endif
     </div>
                     <!-- end row -->

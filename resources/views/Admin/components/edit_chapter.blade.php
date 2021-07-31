@@ -1,21 +1,41 @@
 
 <div class="col-12">
     <div class="card">
-        <div class="card-body">
+        <div class="card-body"> 
+            <div class="col-md-8 m-auto">                                           
+                <form class="" action="{{url('submit-chapter')}}" method="post"> 
+                @csrf    
+			<input type="hidden" class="form-control" name="id" value="{{$chapter->id}}" required>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Chapter Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="chapter_name" required placeholder="Enter Chapter Name" value="{{$chapter->chapter_name}}" />   
+                    </div>
+                </div>
 
-            {{-- <h4 class="card-title">Buttons example</h4> --}}
-            {{-- <p class="card-title-desc">The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
-            </p> --}}
-            <div class="col-md-8 m-auto">
-                                       
-                <form class="" action="{{url('submit-semister')}}" method="POST">                        
-                @csrf 
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Semester Name</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" name="semister_name" required placeholder="Enter Semester Name" required/>
+                        <label class="col-sm-3 col-form-label">Subject</label>
+                        <div class="col-sm-9">                                 
+                            <select class="form-control" name="subject_id" required>                                      
+                                <option value="">Select Subject</option>
+                                @foreach($subjects as $r)                                     
+                                    <option value="{{$r->id}}" @if($r->id == $chapter->subject_id)selected @endif>{{$r->subject_name}}</option> 
+                                @endforeach                                 
+                            </select>
                         </div>
-                    </div>                         
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Semester</label>
+                        <div class="col-sm-9">                                 
+                            <select class="form-control" name="semester_id" readonly>                                    
+                                <option value="">Select Semester</option>
+                                @foreach($semister as $r)                                     
+                                    <option value="{{$r->id}}" @if($r->id == $chapter->semister_id)selected @endif>{{$r->semister_name}}</option> 
+                                @endforeach                                                                    
+                            </select>
+                        </div>
+                    </div>
+                    
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Status</label>
                         <div class="col-sm-9">
@@ -27,13 +47,12 @@
                     </div>
                     <div class="form-group text-center mt-5">
                         <div>
-                            <button type="reset" class="btn btn-secondary waves-effect m-l-5">
+                        <button type="reset" class="btn btn-secondary waves-effect m-l-5">
                             Cancel
                             </button>
                             <button type="submit" class="btn btn-primary waves-effect waves-light">
                             Submit
-                            </button>
-                           
+                            </button>                               
                         </div>
 
                         <div class="any_message mt-3">
@@ -73,5 +92,3 @@
     </div>
 </div>
 <!-- end col -->
-
-

@@ -90,17 +90,27 @@ Route::middleware(['auth', 'Admin'])->group(function () {
     Route::get('view-subject', 'AdminController@view_subject');
     Route::get('add-subject', 'AdminController@add_subject');
     Route::post('submit-subject', 'AdminController@submit_subject');
+    Route::get('edit-subject/{id}', 'AdminController@edit_subject');
+    Route::get('delete-subject/{id}', 'AdminController@delete_subject');
 
     Route::get('view-chapter', 'AdminController@view_chapter');
     Route::get('add-chapter', 'AdminController@add_chapter');
     Route::post('submit-chapter', 'AdminController@submit_chapter');
-
+    Route::get('edit-chapter/{id}', 'AdminController@edit_chapter');
+    Route::get('delete-chapter/{id}', 'AdminController@delete_chapter');
 
     Route::get('view-college', 'AdminController@view_college');
     Route::get('add-college', 'AdminController@add_college');
     Route::post('submit-college', 'AdminController@submit_college');
     Route::get('edit-college/{id}', 'AdminController@edit_college');
     Route::get('delete-college/{id}', 'AdminController@delete_college');
+
+
+    Route::get('view-test-type', 'AdminController@view_test_type');
+    Route::get('add-test-type', 'AdminController@add_test_type');
+    Route::post('submit-test-type', 'AdminController@submit_test_type');
+    Route::get('edit-test-type/{id}', 'AdminController@edit_test_type');
+    Route::get('delete-test-type/{id}', 'AdminController@delete_test_type');
 
     Route::get('{any}', 'QovexController@index');
  

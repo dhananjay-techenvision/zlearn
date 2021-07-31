@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-xl-3">
                             
-     @component('common-components.dashboard-widget')
+     {{-- @component('common-components.dashboard-widget')
      
          @slot('title') New Orders  @endslot
          @slot('iconClass') mdi mdi-tag-plus-outline  @endslot
@@ -32,11 +32,11 @@
          @slot('pClass') progress-bar bg-success   @endslot
          @slot('pValue') 62   @endslot
         
-     @endcomponent
+     @endcomponent --}}
      
                         </div>
 
-                        <div class="col-xl-6">
+                        {{-- <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title mb-4">Sales Report</h4>
@@ -44,9 +44,9 @@
                                     <div id="line-chart" class="apex-charts"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="col-xl-3">
+                        {{-- <div class="col-xl-3">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title mb-4">Revenue</h4>
@@ -54,7 +54,7 @@
                                     <div id="column-chart" class="apex-charts"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- end row -->
 

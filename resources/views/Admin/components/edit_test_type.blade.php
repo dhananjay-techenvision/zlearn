@@ -8,12 +8,13 @@
             </p> --}}
             <div class="col-md-8 m-auto">
                                        
-                <form class="" action="{{url('submit-semister')}}" method="POST">                        
+                <form class="" action="{{url('submit-test-type')}}" method="POST">                        
                 @csrf 
+			<input type="hidden" class="form-control" name="id" value="{{$test_type->id}}" required>
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Semester Name</label>
+                        <label class="col-sm-3 col-form-label">College Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="semister_name" required placeholder="Enter Semester Name" required/>
+                            <input type="text" class="form-control" name="test_type_name"  placeholder="Enter College Name" value="{{$test_type->test_type_name}}" required/>
                         </div>
                     </div>                         
                     <div class="form-group row">

@@ -5,7 +5,7 @@
 
         <div class="user-wid text-center py-4">
             <div class="user-img">
-                <img src="images/users/avatar-2.jpg" alt="" class="avatar-md mx-auto rounded-circle">
+                <img src="{{asset('images/users/avatar-2.jpg')}}" alt="" class="avatar-md mx-auto rounded-circle">
             </div>
 
             <div class="mt-3">
@@ -41,10 +41,11 @@
                         <li><a href="add-subject">Add Subject</a></li>
                         <li><a href="add-chapter">Add Chapter</a></li> --}}
                         <li><a href="{{url('view-standard')}}"> View Standard</a></li>
-                        <li><a href="{{url('view-semister')}}">View Semister</a></li>
+                        <li><a href="{{url('view-semister')}}">View Semester</a></li>
                         <li><a href="{{url('view-subject')}}"> View Subject</a></li>
                         <li><a href="{{url('view-chapter')}}">View Chapter</a></li>
                         <li><a href="{{url('view-college')}}">View College</a></li>
+                        <li><a href="{{url('view-test-type')}}">View Test Type</a></li>
                     </ul>
                 </li>
                 

@@ -12,6 +12,7 @@ Use App\Subject;
 Use App\chapter;
 Use App\College;
 Use App\Semister;
+Use App\Test_Type;
 
 
 
@@ -79,14 +80,14 @@ class AdminController extends Controller
 
          if($req->id) { 
 
-            Standerd::where('id',$req->id)->update([
-                'subject_name' => $req->subject_name,
+            Subject::where('id',$req->id)->update([
+                'subject_name' => $req->sub_name,
                 'semister_id' => $req->semister_id,
                 'standard_id' => $req->standard_id,
                 'status' => $req->status,
             ]);
             toastr()->success('Standard Updated Successfully!');
-            return back(); 
+            return redirect('view-subject');
 
          }else{
  
@@ -109,6 +110,22 @@ class AdminController extends Controller
         return redirect('view-subject');
 
         }
+    }
+
+    public function delete_subject($id){ 
+        $data['result']=Subject::where('id',$id)->delete();
+        toastr()->error('Subject Deleted !');
+        return redirect('view-subject');
+    }
+
+    public function edit_subject($id){
+        $data['flag'] = 15; 
+        $data['page_title'] = 'Edit Subject'; 
+        $data['subject'] = Subject::where('id',$id)->first(); 
+        $data['standerds'] = DB::table('standerds')->where('status',"1")->get();
+        $data['semister'] = Semister::where('status',"1")->get(); 
+        // dd($data);
+        return view('Admin/webviews/manage_admin_user',$data);
     }
 
 
@@ -145,7 +162,7 @@ class AdminController extends Controller
                 'status' => $req->status,
             ]);
             toastr()->success('Standard Updated Successfully!');
-            return back(); 
+            return redirect('view-standard');
 
          }else{
 
@@ -196,7 +213,7 @@ class AdminController extends Controller
     {
        
         $data['flag'] = 12; 
-        $data['page_title'] = 'All Semister';  
+        $data['page_title'] = 'All Semester';  
         $data['semister'] = Semister::get();     
         return view('Admin/webviews/manage_admin_user',$data);
     }
@@ -204,7 +221,7 @@ class AdminController extends Controller
     public function add_semister()
     {
         $data['flag'] = 13; 
-        $data['page_title'] = 'Add Semister';        
+        $data['page_title'] = 'Add Semester';        
         return view('Admin/webviews/manage_admin_user',$data);
     }
 
@@ -223,7 +240,7 @@ class AdminController extends Controller
                 'semister_name' => $req->semister_name,
                 'status' => $req->status,
             ]);
-            toastr()->success('Semister Updated Successfully!');
+            toastr()->success('Semester Updated Successfully!');
             return redirect('view-semister');
 
          }else{
@@ -238,18 +255,18 @@ class AdminController extends Controller
                     $result = $data->save();
                 if($result)
                 {
-                    toastr()->success('Semister Successfully Added!');
+                    toastr()->success('Semester Successfully Added!');
                 }
                 else
                 {
-                    toastr()->error('Semister Not Added!!!');
+                    toastr()->error('Semester Not Added!!!');
                 } 
             }
             else
             {
-                toastr()->error('Semister Already Exists!!! ');
+                toastr()->error('Semester Already Exists!!! ');
             }         
-            toastr()->success('Semister Successfully Added!');
+            toastr()->success('Semester Successfully Added!');
             return redirect('view-semister');
 
             }
@@ -285,47 +302,72 @@ class AdminController extends Controller
         $data['flag'] = 4; 
         $data['page_title'] = 'Add Chapter'; 
         $data['subjects'] = DB::table('subjects')->where('status',"1")->get(); 
+        $data['standerds'] = DB::table('standerds')->where('status',"1")->get();
+        $data['semister'] = Semister::where('status',"1")->get();
         return view('Admin/webviews/manage_admin_user',$data);
     }
 
     public function submit_chapter(Request $req)
     {
        // dd($req);
-        
-        $this->validate($req,[
-            'subject_id'=>'required|numeric',
-            'chapter_name'=>'required',
-            'semester'=>'required|numeric',        
-            'status'=>'nullable|numeric'             
-         ]);
 
-         $result = DB::table('chapters')->where('Chapter_name', $req->chapter_name)->first(); 
+       $this->validate($req,[
+        'subject_id'=>'required|numeric',
+        'chapter_name'=>'required',
+        'semester_id'=>'required|numeric', 
+        'subject_id'=>'required|numeric',       
+        'status'=>'nullable|numeric'             
+     ]);
 
-         if(!$result)
-         {  
+
+     if($req->id) { 
+
+        chapter::where('id',$req->id)->update([
+            'chapter_name' => $req->chapter_name,
+            'semister_id' => $req->semester_id,
+            'subject_id' => $req->subject_id,
+            'status' => $req->status,
+        ]);
+        toastr()->success('Chapter Updated Successfully!');
+        return redirect('view-chapter');
+
+     }else{
+
             $data = new chapter;
-                $data->chapter_name=$req->chapter_name; 
-                $data->subject_id=$req->subject_id;
-                $data->semister_id=$req->semester;          
-                $data->status=$req->status;             
+            $data->chapter_name=$req->chapter_name; 
+            $data->subject_id=$req->subject_id;
+            $data->semister_id=$req->semester_id;          
+            $data->status=$req->status;             
             $result = $data->save();
-            if($result)
-            {
-                $req->session()->flash('alert-success', 'Chapter was Successfully Added!');
-            }
-            else
-            {
-                $req->session()->flash('alert-danger', 'Chapter Not Added!!!');
-            } 
+        if($result)
+        {
+            toastr()->success('Chapter Successfully Added!');
         }
         else
         {
-            $req->session()->flash('alert-danger', 'Chapter Already Exists!!!');
+            toastr()->error('Chapter Not Added!!');
         }         
-    
-        return back(); 
 
-         
+    // toastr()->success('Subject Successfully Added!');
+            return redirect('view-chapter');
+    }   
+    }
+
+    public function delete_chapter($id){ 
+        $data['result']=chapter::where('id',$id)->delete();
+        toastr()->error('Chapter Deleted !');
+        return redirect('view-chapter');
+    }
+
+    public function edit_chapter($id){
+        $data['flag'] = 16; 
+        $data['page_title'] = 'Edit Chapter'; 
+        $data['chapter'] = chapter::where('id',$id)->first(); 
+        $data['subjects'] = DB::table('subjects')->where('status',"1")->get(); 
+        $data['standerds'] = DB::table('standerds')->where('status',"1")->get();
+        $data['semister'] = Semister::where('status',"1")->get(); 
+        // dd($data);
+        return view('Admin/webviews/manage_admin_user',$data);
     }
 
     public function view_college()
@@ -401,6 +443,87 @@ class AdminController extends Controller
         $data['flag'] = 11; 
         $data['page_title'] = 'Edit College'; 
         $data['college'] = College::where('id',$id)->first();  
+        // dd($data);
+        return view('Admin/webviews/manage_admin_user',$data);
+    }
+
+
+
+
+    public function view_test_type()
+    {
+       $data['flag'] = 17; 
+       $data['page_title'] = 'All Test Type';  
+       $data['test_type'] = Test_Type::get();
+    //    dd($data);     
+       return view('Admin/webviews/manage_admin_user',$data);
+    }
+
+    public function add_test_type()
+    {
+        $data['flag'] = 18; 
+        $data['page_title'] = 'Add Test Type';        
+        return view('Admin/webviews/manage_admin_user',$data);
+    }
+
+
+    public function submit_test_type(Request $req)
+    {
+    //    dd($req);
+        $this->validate($req,[
+            'test_type_name'=>'required',        
+            'status'=>'nullable|numeric'              
+         ]);
+
+
+         if($req->id) { 
+
+            Test_Type::where('id',$req->id)->update([
+                'test_type_name' => $req->test_type_name,
+                'status' => $req->status,
+            ]);
+            toastr()->success('Test Type Updated Successfully!');
+            return redirect('view-test-type');
+
+         }else{
+
+            $result = Test_Type::where('test_type_name', $req->test_type_name)->first();  
+                if(!$result)
+                {   
+                // ======================================
+                $data = new Test_Type;
+                $data->test_type_name=$req->test_type_name;            
+                $data->status=$req->status;             
+                $result = $data->save();
+                if($result)
+                {
+                    toastr()->success('Test Type Successfully Added!');
+                }
+                else
+                {
+                    toastr()->error('Test Type Not Added!!!');
+                } 
+            }
+            else
+            {
+                toastr()->error('Test Type Already Exists!!! ');
+            }         
+            toastr()->success('Test Type Successfully Added!');
+            return redirect('view-test-type');
+
+            }
+    }
+
+    public function delete_test_type($id){ 
+        $data['result']=Test_Type::where('id',$id)->delete();
+        toastr()->error('Test Type Deleted !');
+        return redirect('view-test-type');
+    }
+
+    public function edit_test_type($id){
+        $data['flag'] = 19; 
+        $data['page_title'] = 'Edit Test Type'; 
+        $data['test_type'] = Test_Type::where('id',$id)->first();  
         // dd($data);
         return view('Admin/webviews/manage_admin_user',$data);
     }

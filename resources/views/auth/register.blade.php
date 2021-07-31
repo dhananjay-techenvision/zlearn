@@ -21,7 +21,7 @@
                             <div class="bg-login-overlay"></div>
                             <div class="position-relative">
                                 <h5 class="text-white font-size-20">Free {{ __('Register') }}</h5>
-                                <p class="text-white-50 mb-0">Get your free Qovex account now</p>
+                                <p class="text-white-50 mb-0">Get your free Zlearn account now</p>
                                 <a href="index" class="logo logo-admin mt-4">
                                     <img src="/images/logo-sm-dark.png" alt="" height="30">
                                 </a>
@@ -72,7 +72,7 @@
                                     </div>
 
                                     <div class="mt-4 text-center">
-                                        <p class="mb-0">By registering you agree to the Skote <a href="#" class="text-primary">Terms of Use</a></p>
+                                        {{-- <p class="mb-0">By registering you agree to the Skote <a href="#" class="text-primary">Terms of Use</a></p> --}}
                                     </div>
                                 </form>
                             </div>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="mt-5 text-center">
                         <p>Already have an account ? <a href="login" class="font-weight-medium text-primary"> Login</a> </p>
-                        <p>© <script> document.write(new Date().getFullYear()) </script> Qovex. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                        <p>© <script> document.write(new Date().getFullYear()) </script> Zlearn. </p>
                     </div>
 
                 </div>

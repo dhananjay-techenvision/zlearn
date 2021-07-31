@@ -13,9 +13,9 @@
                 
 			<input type="hidden" class="form-control" name="id" value="{{$semister->id}}" required>
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Semister Name</label>
+                        <label class="col-sm-3 col-form-label">Semester Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="semister_name" required placeholder="Enter Semister Name" value="{{$semister->semister_name}}" />
+                            <input type="text" class="form-control" name="semister_name" required placeholder="Enter Semester Name" value="{{$semister->semister_name}}" />
                         </div>
                     </div>                         
                     <div class="form-group row">

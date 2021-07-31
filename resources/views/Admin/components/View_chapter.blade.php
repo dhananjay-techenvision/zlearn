@@ -22,14 +22,19 @@
                         <?php $i = 1; ?>
                          <!-- { {dd($chapters)} } -->
                         @foreach($chapters as $row)
+
+                        @php
+                                $semister_name = DB::table('semisters')->where('id',$row->semister_id)->pluck('semister_name')->first();
+                                $subjects_name = DB::table('subjects')->where('id',$row->subject_id)->pluck('subject_name')->first();
+                        @endphp
+
                         <tr>
                             <td>{{$i++}}</td>
                             <td>{{$row->chapter_name}}</td>
-                            <td>{{$row->semister_id}}</td>
-                            <?php  $result = DB::table('subjects')->where('id', $row->subject_id)->select('subject_name')->first();?>
-                            <td>{{$result->subject_name}}</td>                            
+                            <td>{{$semister_name}}</td>                            
+                            <td>{{$subjects_name}}</td>                            
                             <td>@if($row->status == 1) Active @else De-Active @endif</td>
-                            <td><a href="{{$row->id}}" class="btn btn-info mr-2">Edit</a><a href="{{$row->id}}" class="btn btn-danger">Delete</a></td>                                               
+                            <td><a href="{{url('edit-chapter/'.$row->id)}}" class="btn btn-info mr-2">Edit</a><a href="{{url('delete-chapter/'.$row->id)}}" class="btn btn-danger">Delete</a></td>                                               
                         </tr>
                         @endforeach
                        
